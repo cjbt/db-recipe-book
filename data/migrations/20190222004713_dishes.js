@@ -22,7 +22,7 @@ exports.up = function(knex, Promise) {
         .inTable('dishes')
         .onDelete('NO ACTION')
         .onUpdate('CASCADE');
-      tbl.text('instructions').notNullable();
+      tbl.string('instructions').notNullable();
       tbl.timestamps(true, true);
     })
     .createTable('recipeingredients', tbl => {

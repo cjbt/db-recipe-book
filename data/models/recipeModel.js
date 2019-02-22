@@ -13,6 +13,19 @@ const getRecipes = () => {
     .join('dishes as d', 'd.id', 'r.dishes_id');
 };
 
+const addRecipe = recipe => {
+  return db('recipes as r').insert(recipe);
+  // .then(ids => {
+  //   return getRecipeById(ids[0]);
+  // });
+};
+
+const getRecipeById = id => {
+  return db('recipes as r').where({ id });
+};
+
 module.exports = {
-  getRecipes
+  getRecipes,
+  addRecipe,
+  getRecipeById
 };
