@@ -2,7 +2,9 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
+
 const dishesRouter = require('./data/routes/dishesRoute');
+const recipesRouter = require('./data/routes/recipesRoute');
 
 const server = express();
 server.use(express.json());
@@ -15,5 +17,6 @@ server.get('/', (req, res) => {
 });
 
 server.use('/api/dishes', dishesRouter);
+server.use('/api/recipes', recipesRouter);
 
 module.exports = server;
